@@ -32,3 +32,5 @@ const cardArray = [
     img: "images/white.png",
   },
 ];
+
+cardArray.sort(() => 0.5 - Math.random());
