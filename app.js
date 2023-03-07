@@ -33,4 +33,4 @@ const cardArray = [
   },
 ];
 
-cardArray.sort(() => 0.5 - Math.random());
+cardArray.sort(() => 0.5 - Math.random()); //this is a shortcut to shuffling an array randomly
