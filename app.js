@@ -34,3 +34,15 @@ const cardArray = [
 ];
 
 cardArray.sort(() => 0.5 - Math.random()); //this is a shortcut to shuffling an array randomly
+
+const gridDisplay = document.querySelector("#grid");
+
+function createBoard() {
+  for (i = 0; i < 10; i++) {
+    const card = document.createElement("img");
+
+    console.log(card, i);
+  }
+}
+
+createBoard();
