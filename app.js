@@ -38,7 +38,7 @@ cardArray.sort(() => 0.5 - Math.random()); //this is a shortcut to shuffling an 
 const gridDisplay = document.querySelector("#grid");
 
 function createBoard() {
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < cardArray.length; i++) {
     const card = document.createElement("img");
     card.setAttribute("src", "images/blank.png");
     card.setAttribute("data-id", i);
