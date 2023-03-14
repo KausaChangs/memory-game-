@@ -37,9 +37,11 @@ cardArray.sort(() => 0.5 - Math.random()); //this is a shortcut to shuffling an 
 
 const gridDisplay = document.querySelector("#grid");
 
-const cardsChosen = [];
+let cardsChosen = [];
 
-const cardsChosenIds = [];
+let cardsChosenIds = [];
+
+const cardsWon = [];
 
 function createBoard() {
   for (i = 0; i < cardArray.length; i++) {
@@ -56,15 +58,21 @@ createBoard();
 
 function checkMatch() {
   const cards = document.querySelectorAll("img");
+  const optionOneId = cardsChosenIds[0];
+  const optionTwoId = cardsChosenIds[1];
   console.log(cards);
   console.log("check for match!");
   if (cardsChosen[0] == cardsChosen[1]) {
     alert("It's a Match!");
-    cards[cardsChosenIds[0]].setAttribute("src", "images/white.png");
-    cards[cardsChosenIds[1]].setAttribute("src", "images/white.png");
-    cards[cardsChosenIds[0]].removeEventListener("click", flipCard);
-    cards[cardsChosenIds[1]].removeEventListener("click", flipCard);
+    cards[optionOneId].setAttribute("src", "images/white.png");
+    cards[optionTwoId].setAttribute("src", "images/white.png");
+    cards[optionOneId].removeEventListener("click", flipCard);
+    cards[optionTwoId].removeEventListener("click", flipCard);
+    cardsWon.push(cardsChosen);
   }
+
+  cardsChosen = [];
+  cardsChosenIds = [];
 }
 
 function flipCard() {
