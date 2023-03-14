@@ -64,6 +64,11 @@ function checkMatch() {
   console.log("check for match!");
   if (cardsChosen[0] == cardsChosen[1]) {
     alert("It's a Match!");
+
+    if (optionOneId == optionTwoId) {
+      alert("You clicked the same card!");
+    }
+
     cards[optionOneId].setAttribute("src", "images/white.png");
     cards[optionTwoId].setAttribute("src", "images/white.png");
     cards[optionOneId].removeEventListener("click", flipCard);
