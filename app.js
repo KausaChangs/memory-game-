@@ -64,33 +64,36 @@ function checkMatch() {
   console.log("check for match!");
   if (cardsChosen[0] == cardsChosen[1]) {
     alert("It's a Match!");
+  }
 
-    if (optionOneId == optionTwoId) {
-      alert("You clicked the same card!");
-    }
+  if (optionOneId == optionTwoId) {
+    alert("You clicked the same image!");
 
     cards[optionOneId].setAttribute("src", "images/white.png");
     cards[optionTwoId].setAttribute("src", "images/white.png");
     cards[optionOneId].removeEventListener("click", flipCard);
     cards[optionTwoId].removeEventListener("click", flipCard);
     cardsWon.push(cardsChosen);
+  } else {
+    cards[optionOneId].setAttribute("src", "images/blank.png");
+    cards[optionTwoId].setAttribute("src", "images/blank.png");
   }
 
   cardsChosen = [];
   cardsChosenIds = [];
-}
 
-function flipCard() {
-  const cardId = this.getAttribute("data-id");
-  cardsChosen.push(cardArray[cardId].name);
-  cardsChosenIds.push(cardId);
+  function flipCard() {
+    const cardId = this.getAttribute("data-id");
+    cardsChosen.push(cardArray[cardId].name);
+    cardsChosenIds.push(cardId);
 
-  console.log(cardsChosen);
-  console.log(cardsChosenIds);
+    console.log(cardsChosen);
+    console.log(cardsChosenIds);
 
-  this.setAttribute("src", cardArray[cardId].img);
+    this.setAttribute("src", cardArray[cardId].img);
 
-  if (cardsChosen.length === 2) {
-    setTimeout(checkMatch, 500);
+    if (cardsChosen.length === 2) {
+      setTimeout(checkMatch, 500);
+    }
   }
 }
