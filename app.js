@@ -11,10 +11,7 @@ const cardArray = [
     name: "hotdog",
     img: "images/hotdog.png",
   },
-  {
-    name: "blank",
-    img: "images/blank.png",
-  },
+
   {
     name: "ice-cream",
     img: "images/ice-cream.png",
@@ -28,8 +25,29 @@ const cardArray = [
     img: "images/pizza.png",
   },
   {
-    name: "white",
-    img: "images/white.png",
+    name: "fries",
+    img: "images/fries.png",
+  },
+  {
+    name: "cheeseburger",
+    img: "images/cheeseburger.png",
+  },
+  {
+    name: "hotdog",
+    img: "images/hotdog.png",
+  },
+
+  {
+    name: "ice-cream",
+    img: "images/ice-cream.png",
+  },
+  {
+    name: "milkshake",
+    img: "images/milkshake.png",
+  },
+  {
+    name: "pizza",
+    img: "images/pizza.png",
   },
 ];
 
@@ -61,15 +79,14 @@ function checkMatch() {
   const cards = document.querySelectorAll("img");
   const optionOneId = cardsChosenIds[0];
   const optionTwoId = cardsChosenIds[1];
-  console.log(cards);
-  console.log("check for match!");
-  if (cardsChosen[0] == cardsChosen[1]) {
-    alert("It's a Match!");
-  }
 
   if (optionOneId == optionTwoId) {
-    alert("You clicked the same image!");
+    cards[optionOneId].setAttribute("src", "images/blank.png");
+    cards[optionTwoId].setAttribute("src", "images/blank.png");
 
+    alert("You clicked the same image!");
+  } else if (cardsChosen[0] == cardsChosen[1]) {
+    alert("It's a Match!");
     cards[optionOneId].setAttribute("src", "images/white.png");
     cards[optionTwoId].setAttribute("src", "images/white.png");
     cards[optionOneId].removeEventListener("click", flipCard);
